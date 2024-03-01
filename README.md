@@ -2,4 +2,4 @@
 
 Pixel Game Jam - 2024
 
-Made in Godot
+Made in Godot in 2024
