@@ -1,45 +1,41 @@
 extends Area2D
 
-var currentPosition = 3
+var farLeftMarkerXPosition = 0
+var centerMarkerXPosition = 0
+var farRightMarkerXPosition = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	position.x = getPosition(currentPosition)
-	
+# Represents that we are in the center marker
+var currentPosition = 2
+
 func _process(delta):
 	if Input.is_action_just_pressed("move_left"):
 		if currentPosition == 1:
 			print("Can't move further to the left ")
 		else:
-			currentPosition -= 1
+			setCurrentPosition(-1)
 			
 	if Input.is_action_just_pressed("move_right"):
 		if currentPosition == 3:
 			print("Can't move further to the right ")
 		else:
-			currentPosition += 1
-			
-	setPosition(currentPosition)
-	
-func teleportPlayer(marker):
-	if currentPosition ==  1:
-		position = $FarLeft.position
-	elif currentPosition == 2:
-		position = $Center.position
-	else:
-		position = $FarRight.position
+			setCurrentPosition(1)
 
-func getPosition(pos):
-	# FarLeft = 1
-	# Center = 2
-	# FarRight = 3
+func setCurrentPosition(value):
+	currentPosition += value
 	
+	# 1 = Far Left
+	# 2 = Center
+	# 3 = Far Right
 	if currentPosition == 1:
-		return $FarLeft.position.x
+		position.x = farLeftMarkerXPosition
 	if currentPosition == 2:
-		return $Center.position.x
+		position.x = centerMarkerXPosition
 	if currentPosition == 3:
-		return $FarRight.position.x
+		position.x = farRightMarkerXPosition
+		
 
-func setPosition(pos):
-	position.x = getPosition(pos)
+# Will be called when Main enters the scene tree
+func setMarkerPositions(left, center, right):
+	farLeftMarkerXPosition = left
+	centerMarkerXPosition = center
+	farRightMarkerXPosition = right
