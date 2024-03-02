@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://byp4ylfkum0ic"]
+
+[ext_resource type="Script" path="res://main/main.gd" id="1_2b7o1"]
+[ext_resource type="PackedScene" uid="uid://dev4ages50da8" path="res://player/player.tscn" id="2_mf7du"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_2b7o1")
+
+[node name="Player" parent="." instance=ExtResource("2_mf7du")]
+
+[node name="FarLeft" type="Marker2D" parent="."]
+position = Vector2(32, 120)
+
+[node name="Center" type="Marker2D" parent="."]
+position = Vector2(136, 120)
+
+[node name="FarRight" type="Marker2D" parent="."]
+position = Vector2(225, 120)
