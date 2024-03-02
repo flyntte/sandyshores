@@ -1,11 +1,11 @@
 extends Area2D
 
-var farLeftMarkerXPosition = 0
-var centerMarkerXPosition = 0
-var farRightMarkerXPosition = 0
-
 # Represents that we are in the center marker
 var currentPosition = 2
+
+func _ready():
+	position.x = Globals.centerMarkerXPosition
+	position.y = Globals.centerMarkerYPosition
 
 func _process(delta):
 	if Input.is_action_just_pressed("move_left"):
@@ -27,15 +27,8 @@ func setCurrentPosition(value):
 	# 2 = Center
 	# 3 = Far Right
 	if currentPosition == 1:
-		position.x = farLeftMarkerXPosition
+		position.x = Globals.farLeftMarkerXPosition
 	if currentPosition == 2:
-		position.x = centerMarkerXPosition
+		position.x = Globals.centerMarkerXPosition
 	if currentPosition == 3:
-		position.x = farRightMarkerXPosition
-		
-
-# Will be called when Main enters the scene tree
-func setMarkerPositions(left, center, right):
-	farLeftMarkerXPosition = left
-	centerMarkerXPosition = center
-	farRightMarkerXPosition = right
+		position.x = Globals.farRightMarkerXPosition
