@@ -1,0 +1,18 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bap8vas471yb8"]
+
+[ext_resource type="Texture2D" uid="uid://dvdvdax03b88a" path="res://tilemaps/sand_tiles.png" id="1_5jpji"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u7nuk"]
+texture = ExtResource("1_5jpji")
+texture_region_size = Vector2i(24, 24)
+0:0/animation_frame_0/duration = 0.1
+0:0/animation_frame_1/duration = 0.1
+0:0/animation_frame_2/duration = 0.1
+0:0/animation_frame_3/duration = 0.1
+0:0/animation_frame_4/duration = 0.1
+0:0/animation_frame_5/duration = 0.1
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(24, 24)
+sources/0 = SubResource("TileSetAtlasSource_u7nuk")
