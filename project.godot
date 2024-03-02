@@ -21,7 +21,7 @@ window/size/viewport_height=144
 window/size/window_width_override=854
 window/size/window_height_override=480
 window/stretch/mode="viewport"
-window/stretch/scale=2.0
+window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
 
 [editor]
