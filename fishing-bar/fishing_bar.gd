@@ -29,7 +29,7 @@ func _ready():
 func _process(delta):
 	if $Hook.position.y == HOOK_LIMIT:
 		resetHook()
-		pass
+		fishing_minigame_ended.emit()
 	else:
 		if catched == false and can_fall:
 			$Hook.position.y += HOOK_SPEED
