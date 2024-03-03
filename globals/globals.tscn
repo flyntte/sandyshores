@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8lsj2fv6lpxj"]
+
+[ext_resource type="Script" path="res://globals/globals.gd" id="1_c7yse"]
+
+[node name="Globals" type="Node"]
+script = ExtResource("1_c7yse")
+
+[node name="InGameTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="TimeLeftToFish" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="InGameTimer" to="." method="_on_in_game_timer_timeout"]
+[connection signal="timeout" from="TimeLeftToFish" to="." method="_on_time_left_to_fish_timeout"]
