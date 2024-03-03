@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://derqlvptg6lus"]
 
-[ext_resource type="Texture2D" path="res://assets/hook.png" id="1_kspvl"]
+[ext_resource type="Texture2D" uid="uid://b4goi2jngqkn3" path="res://fishing-bar/hook.png" id="1_kspvl"]
 [ext_resource type="Script" path="res://fishing-bar/fishing_bar.gd" id="1_ktdxx"]
 [ext_resource type="Texture2D" uid="uid://c152imbhxbatt" path="res://fishing-bar/hit-mark.png" id="2_5vigk"]
 
