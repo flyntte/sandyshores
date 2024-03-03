@@ -7,11 +7,17 @@ var speed
 func _ready():
 	speed = randf_range(0.2, 0.5)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.y += speed
 
+func stop():
+	speed = 0
+
 func _on_visible_on_screen_notifier_2d_screen_exited():
+	cactus_exited.emit()
+	queue_free()
+
+func _on_tree_exited():
 	cactus_exited.emit()
 	queue_free()

@@ -11,4 +11,4 @@ position = Vector2(34, 0)
 position = Vector2(128, 0)
 
 [node name="CactusSpawner3" parent="." instance=ExtResource("1_swysp")]
-position = Vector2(226, 0)
+position = Vector2(222, 0)
