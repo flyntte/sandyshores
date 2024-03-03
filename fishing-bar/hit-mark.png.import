@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c152imbhxbatt"
-path="res://.godot/imported/hit-mark.png-78c6e996c99449fb93682907f7a7060a.ctex"
+path="res://.godot/imported/hit-mark.png-623d7fc853f86b87f03c97b265bb49c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hit-mark.png"
-dest_files=["res://.godot/imported/hit-mark.png-78c6e996c99449fb93682907f7a7060a.ctex"]
+source_file="res://fishing-bar/hit-mark.png"
+dest_files=["res://.godot/imported/hit-mark.png-623d7fc853f86b87f03c97b265bb49c0.ctex"]
 
 [params]
 

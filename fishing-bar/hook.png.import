@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://co0eyxam7d1u1"
-path="res://.godot/imported/cactus.png-366c3b67d0b3dfc72dbc4a57fb23b7b9.ctex"
+uid="uid://b4goi2jngqkn3"
+path="res://.godot/imported/hook.png-d4da62795ac7f0039421fd96547d7d0c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cactus.png"
-dest_files=["res://.godot/imported/cactus.png-366c3b67d0b3dfc72dbc4a57fb23b7b9.ctex"]
+source_file="res://fishing-bar/hook.png"
+dest_files=["res://.godot/imported/hook.png-d4da62795ac7f0039421fd96547d7d0c.ctex"]
 
 [params]
 
