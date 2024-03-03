@@ -8,6 +8,7 @@ func _process(delta):
 
 func _on_fishing_minigame_started():
 	$FishingBar.showHitmark()
+	Globals.setPlayerState(Globals.STATE.FISHING)
 
 func _on_fishing_minigame_ended(catched):
 	# Catched determines if the player caught or didn't caught the cactus

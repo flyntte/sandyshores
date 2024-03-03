@@ -26,7 +26,6 @@ func _process(delta):
 				
 	if Input.is_action_just_pressed("fish") and Globals.playerState == Globals.STATE.IDLE and current_possible_fish != null:
 		print("Fishing...")
-		Globals.setPlayerState(Globals.STATE.FISHING)
 		start_fishing_minigame()
 
 
