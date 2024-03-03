@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dev4ages50da8" path="res://player/player.tscn" id="2_mf7du"]
 [ext_resource type="PackedScene" uid="uid://derqlvptg6lus" path="res://fishing-bar/fishing_bar.tscn" id="2_tpmkf"]
 [ext_resource type="TileSet" uid="uid://bap8vas471yb8" path="res://tilemaps/sand_tile_map.tres" id="3_l8ii2"]
-[ext_resource type="TileSet" uid="uid://bbfjwndtlrwi8" path="res://tilemaps/bridge_tile_set.tres" id="4_t0k3b"]
+[ext_resource type="TileSet" uid="uid://wddphrfs4dn1" path="res://tilemaps/bridge_tile_set.tres" id="4_t0k3b"]
 [ext_resource type="PackedScene" uid="uid://p7cwmw2c5im4" path="res://cactus/spawners.tscn" id="5_5a54q"]
 
 [node name="Main" type="Node"]
