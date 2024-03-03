@@ -4,9 +4,8 @@
 [ext_resource type="Script" path="res://fishing-bar/fishing_bar.gd" id="1_ktdxx"]
 [ext_resource type="Texture2D" uid="uid://c152imbhxbatt" path="res://assets/hit-mark.png" id="2_5vigk"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xo76k"]
-radius = 7.0
-height = 18.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbshi"]
+size = Vector2(11, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rvl2m"]
 size = Vector2(20, 12)
@@ -17,15 +16,14 @@ script = ExtResource("1_ktdxx")
 [node name="Hook" type="Area2D" parent="."]
 z_index = 1
 position = Vector2(235, 27)
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Hook"]
 position = Vector2(0, -71)
 texture = ExtResource("1_kspvl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hook"]
-position = Vector2(0, -7)
-shape = SubResource("CapsuleShape2D_xo76k")
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_pbshi")
 
 [node name="Hitmark" type="Area2D" parent="."]
 position = Vector2(235, 59)
