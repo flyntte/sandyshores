@@ -7,26 +7,29 @@ var currentPosition = 2
 
 var current_possible_fish
 
+var can_move = true
+
 func _ready():
 	position.x = Globals.centerMarkerXPosition
 	position.y = Globals.centerMarkerYPosition
+	Globals.connect("game_over", _on_game_over)
+	Globals.connect("game_restarted", _on_game_restarted)
 
 func _process(delta):
-	if Input.is_action_just_pressed("move_left") and Globals.playerState == Globals.STATE.IDLE:
+	if Input.is_action_just_pressed("move_left") and Globals.playerState == Globals.STATE.IDLE and can_move:
 		if currentPosition == 1:
 			pass
 		else:
 			setCurrentPosition(-1)
 			
-	if Input.is_action_just_pressed("move_right") and Globals.playerState == Globals.STATE.IDLE:
+	if Input.is_action_just_pressed("move_right") and Globals.playerState == Globals.STATE.IDLE and can_move:
 		if currentPosition == 3:
 			pass
 		else:
 			setCurrentPosition(1)
 				
-	if Input.is_action_just_pressed("fish") and Globals.playerState == Globals.STATE.IDLE and current_possible_fish != null:
+	if Input.is_action_just_pressed("fish") and Globals.playerState == Globals.STATE.IDLE and current_possible_fish != null and can_move:
 		print("Fishing...")
-		#Globals.setPlayerState(Globals.STATE.FISHING)
 		start_fishing_minigame()
 
 
@@ -50,8 +53,9 @@ func start_fishing_minigame():
 		fishing_minigame_started.emit()
 
 func delete_cactus():
-	current_possible_fish.queue_free()
-	current_possible_fish = null
+	if current_possible_fish != null:
+		current_possible_fish.queue_free()
+		current_possible_fish = null
 
 func _on_area_entered(area):
 	if area.name == "Cactus":
@@ -60,3 +64,11 @@ func _on_area_entered(area):
 func _on_area_exited(area):
 	if area.name == "Cactus":
 		current_possible_fish = null
+
+func _on_game_over(score, time):
+	can_move = false
+
+func _on_game_restarted():
+	can_move = true
+	position.x = Globals.centerMarkerXPosition
+	position.y = Globals.centerMarkerYPosition

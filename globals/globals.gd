@@ -1,5 +1,8 @@
 extends Node
 
+signal game_over
+signal game_restarted
+
 var farLeftMarkerXPosition = 32
 var centerMarkerXPosition = 128
 var centerMarkerYPosition = 131
@@ -32,40 +35,43 @@ const STATE = {
 }
 
 func _ready():
-	pass
+	connect("game_over", _on_game_over)
 
 func _process(delta):
 	if lives == 0:
-		# TODO: Show the user lost when lives equals 0 in main?
-		# for now just reset stats
-		reset()
-		print("GAME OVER")
+		#game_over.emit()
+		#resetGame()
+		#print("GAME OVER")
+		pass
 func _on_in_game_timer_timeout():
 	inGameTimer += 1
 	
 func _on_time_left_to_fish_timeout():
 	if timeLeftToFish == 0:
 		setPlayerHealth(-1)
+		checkLives()
 		timeLeftToFish = TIMERS.timeLeftToFish
 		return
 		
 	timeLeftToFish -= 1
 	print("Time Left: " + str(timeLeftToFish))
-	print("Player lives left: " + str(lives))
+	#print("Player lives left: " + str(lives))
 	
-func reset():
+func resetGame():
 	timeLeftToFish = TIMERS.timeLeftToFish
 	inGameTimer = TIMERS.inGameTimer
 	score = 0
 	lives = 3
 	$InGameTimer.start()
 	$TimeLeftToFish.start()
+	game_restarted.emit()
 
 func setPlayerHealth(value):
 	lives += value
 	
 func setPlayerScore(value):
 	score += value
+	print("Score" + str(score))
 	
 func setInGameTimer(value):
 	inGameTimer = value
@@ -82,6 +88,7 @@ func setPlayerStats(catched):
 		setPlayerScore(1)
 	else:
 		setPlayerHealth(-1)
+		checkLives()
 		
 	print("Lives left: " + str(lives))
 	
@@ -92,3 +99,12 @@ func resetTimers():
 	$TimeLeftToFish.wait_time = 1
 	
 	setTimeLeftToFish(TIMERS.timeLeftToFish)
+
+func checkLives():
+	if lives == 0:
+		game_over.emit(score, inGameTimer)
+
+func _on_game_over(lives, score):
+	$InGameTimer.stop()
+	$TimeLeftToFish.stop()
+	print("GAME OVER")
