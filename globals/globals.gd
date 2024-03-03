@@ -2,6 +2,9 @@ extends Node
 
 signal game_over
 signal game_restarted
+signal health_changed
+signal score_changed
+signal time_left_changed
 
 var farLeftMarkerXPosition = 32
 var centerMarkerXPosition = 128
@@ -36,12 +39,14 @@ const STATE = {
 
 func _ready():
 	connect("game_over", _on_game_over)
+	#connect("health_changed", _on_health_changed)
+	#connect("score_changed", _on_score_changed)
 
 func _process(delta):
-	if lives == 0:
-		#game_over.emit()
-		#resetGame()
-		#print("GAME OVER")
+	#if lives == 0:
+		##game_over.emit()
+		##resetGame()
+		##print("GAME OVER")
 		pass
 func _on_in_game_timer_timeout():
 	inGameTimer += 1
@@ -51,10 +56,11 @@ func _on_time_left_to_fish_timeout():
 		setPlayerHealth(-1)
 		checkLives()
 		timeLeftToFish = TIMERS.timeLeftToFish
+		time_left_changed.emit(timeLeftToFish)
 		return
 		
 	timeLeftToFish -= 1
-	print("Time Left: " + str(timeLeftToFish))
+	time_left_changed.emit(timeLeftToFish)
 	#print("Player lives left: " + str(lives))
 	
 func resetGame():
@@ -62,22 +68,28 @@ func resetGame():
 	inGameTimer = TIMERS.inGameTimer
 	score = 0
 	lives = 3
+	health_changed.emit()
 	$InGameTimer.start()
 	$TimeLeftToFish.start()
+	health_changed.emit()
+	score_changed.emit()
+	time_left_changed.emit(timeLeftToFish)
 	game_restarted.emit()
 
 func setPlayerHealth(value):
 	lives += value
+	health_changed.emit()
 	
 func setPlayerScore(value):
 	score += value
-	print("Score" + str(score))
+	score_changed.emit()
 	
 func setInGameTimer(value):
 	inGameTimer = value
 	
 func setTimeLeftToFish(value):
 	timeLeftToFish = value
+	time_left_changed.emit(timeLeftToFish)
 	
 func setPlayerStats(catched):
 	# if catched equals true then we must add one to the player score
@@ -103,6 +115,12 @@ func resetTimers():
 func checkLives():
 	if lives == 0:
 		game_over.emit(score, inGameTimer)
+
+#func _on_health_changed():
+	#pass
+	#
+#func _on_score_changed():
+	#pass
 
 func _on_game_over(lives, score):
 	$InGameTimer.stop()

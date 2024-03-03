@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj2yc8ng0anhy"
-path="res://.godot/imported/hit-mark.png-623d7fc853f86b87f03c97b265bb49c0.ctex"
+uid="uid://dakukadavyxll"
+path="res://.godot/imported/try_again_button.png-323661dbed36c87b54a279f6ef63b5d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fishing-bar/hit-mark.png"
-dest_files=["res://.godot/imported/hit-mark.png-623d7fc853f86b87f03c97b265bb49c0.ctex"]
+source_file="res://gui/try_again_button.png"
+dest_files=["res://.godot/imported/try_again_button.png-323661dbed36c87b54a279f6ef63b5d5.ctex"]
 
 [params]
 
