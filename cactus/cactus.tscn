@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://co0eyxam7d1u1" path="res://cactus/cactus.png" id="1_8addb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b16x"]
+size = Vector2(20, 4)
 
 [node name="Cactus" type="Area2D"]
 z_index = 1
@@ -13,6 +14,7 @@ script = ExtResource("1_6pi6l")
 texture = ExtResource("1_8addb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_7b16x")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

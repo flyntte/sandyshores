@@ -4,11 +4,14 @@ extends Marker2D
 var cactus_scene = preload("res://cactus/cactus.tscn")
 
 var spawn_time
+var can_spawn = true
 
 # Called when the node enters the scene tree for the first time.
 # Picks a random number to spawn the next cactus
 func _ready():
 	reset_timer()
+	Globals.connect("game_over", _on_game_over)
+	Globals.connect("game_restarted", _on_game_restarted)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -28,5 +31,17 @@ func reset_timer():
 	$SpawnTime.wait_time = spawn_time
 	$SpawnTime.start()
 
+func stop_spawner():
+	can_spawn = false
+	$SpawnTime.stop()
+
 func _on_cactus_exited():
+	if can_spawn:
+		reset_timer()
+
+func _on_game_over(score, time):
+	stop_spawner()
+
+func _on_game_restarted():
+	can_spawn = true
 	reset_timer()
