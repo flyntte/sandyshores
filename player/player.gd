@@ -3,9 +3,11 @@ extends Area2D
 # Represents that we are in the center marker
 var currentPosition = 2
 
+
 func _ready():
 	position.x = Globals.centerMarkerXPosition
 	position.y = Globals.centerMarkerYPosition
+	
 
 func _process(delta):
 	if Input.is_action_just_pressed("move_left"):
@@ -19,6 +21,8 @@ func _process(delta):
 			print("Can't move further to the right ")
 		else:
 			setCurrentPosition(1)
+	if Input.is_action_just_pressed("fish"):
+		Globals.setPlayerState(Globals.STATE.FISHING)
 
 func setCurrentPosition(value):
 	currentPosition += value
