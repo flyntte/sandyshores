@@ -22,3 +22,4 @@ func _on_time_left_changed(time):
 
 func _on_game_restarted():
 	$VBoxContainer/MarginContainer3/HeartsContainer/Heart.frame = 0
+	$VBoxContainer/MarginContainer/ScoreLabel.text = str(Globals.score)

@@ -11,6 +11,9 @@ var centerMarkerXPosition = 128
 var centerMarkerYPosition = 131
 var farRightMarkerXPosition = 224
 
+# Difficulty Variable
+var difficulty = 1
+
 # Player Current State
 var playerState = STATE.IDLE
 
@@ -79,7 +82,7 @@ func resetGame():
 	$InGameTimer.start()
 	$TimeLeftToFish.start()
 	health_changed.emit()
-	score_changed.emit()
+	score_changed.emit(difficulty)
 	time_left_changed.emit(timeLeftToFish)
 	game_restarted.emit()
 
