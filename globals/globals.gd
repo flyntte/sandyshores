@@ -63,6 +63,13 @@ func _on_time_left_to_fish_timeout():
 	time_left_changed.emit(timeLeftToFish)
 	#print("Player lives left: " + str(lives))
 	
+func stopTimeLeftToFish():
+	$TimeLeftToFish.stop()
+	
+func startTimeLeftToFish():
+	$TimeLeftToFish.start()
+
+	
 func resetGame():
 	timeLeftToFish = TIMERS.timeLeftToFish
 	inGameTimer = TIMERS.inGameTimer
