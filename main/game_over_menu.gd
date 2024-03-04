@@ -8,14 +8,14 @@ func _ready():
 
 func _on_game_over(score, time):
 	$ColorRect/VBoxContainer/HBoxContainer/ScoreLabel.text = "Score: " + str(score)
-	$ColorRect/VBoxContainer/HBoxContainer/TimeLabel.text = "Time: " + str(time)
+	$ColorRect/VBoxContainer/HBoxContainer/TimeLabel.text = "Played time: " + str(time)
 	show()
 	$ColorRect/VBoxContainer/TryAgainButton.grab_focus()
 
 func _on_game_restarted():
 	hide()
 	$ColorRect/VBoxContainer/HBoxContainer/ScoreLabel.text = "Score:"
-	$ColorRect/VBoxContainer/HBoxContainer/TimeLabel.text = "Time:"
+	$ColorRect/VBoxContainer/HBoxContainer/TimeLabel.text = "Played time: "
 
 func _on_try_again_button_pressed():
 	Globals.resetGame()

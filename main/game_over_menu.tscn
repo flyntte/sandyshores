@@ -28,8 +28,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -42.5
-offset_bottom = 42.5
+offset_top = -47.5
+offset_bottom = 47.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -55,8 +55,9 @@ text = "Score:"
 
 [node name="TimeLabel" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("2_5ga0v")
-text = "Time:"
+text = "Played Time: "
 
 [node name="TryAgainButton" type="TextureButton" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
