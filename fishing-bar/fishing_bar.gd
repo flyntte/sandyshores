@@ -24,6 +24,7 @@ func _ready():
 
 func _process(delta):
 	if $Hook.position.y == HOOK_LIMIT:
+		$AudioFail.play()
 		resetHook()
 		fishing_minigame_ended.emit(false)
 	if Globals.playerState == Globals.STATE.FISHING:
@@ -31,10 +32,12 @@ func _process(delta):
 	if inHitMark:
 		if Input.is_action_just_pressed("fish"):
 			resetHook()
+			$AudioCatch.play()
 			fishing_minigame_ended.emit(true)
 	if Globals.playerState == Globals.STATE.FISHING:
 		if Input.is_action_just_pressed("fish") and !inHitMark:
 			resetHook()
+			$AudioFail.play()
 			fishing_minigame_ended.emit(false)
 
 func _on_hitmark_area_entered(area):

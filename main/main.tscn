@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://byp4ylfkum0ic"]
+[gd_scene load_steps=10 format=3 uid="uid://byp4ylfkum0ic"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_2b7o1"]
 [ext_resource type="PackedScene" uid="uid://dev4ages50da8" path="res://player/player.tscn" id="2_mf7du"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://p7cwmw2c5im4" path="res://cactus/spawners.tscn" id="5_5a54q"]
 [ext_resource type="PackedScene" uid="uid://4shfjcdv4qki" path="res://main/game_over_menu.tscn" id="7_44usu"]
 [ext_resource type="PackedScene" uid="uid://d037gatmmoeyp" path="res://gui/gui.tscn" id="8_4u3wh"]
+[ext_resource type="AudioStream" uid="uid://bcfsbjhklpj4u" path="res://audio/By The Pond.mp3" id="9_dqnfq"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_2b7o1")
@@ -46,3 +47,7 @@ position = Vector2(220, 131)
 z_index = 20
 
 [node name="GUI" parent="." instance=ExtResource("8_4u3wh")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_dqnfq")
+autoplay = true

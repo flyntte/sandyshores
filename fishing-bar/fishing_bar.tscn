@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://derqlvptg6lus"]
+[gd_scene load_steps=8 format=3 uid="uid://derqlvptg6lus"]
 
 [ext_resource type="Texture2D" uid="uid://b4goi2jngqkn3" path="res://fishing-bar/hook.png" id="1_kspvl"]
 [ext_resource type="Script" path="res://fishing-bar/fishing_bar.gd" id="1_ktdxx"]
 [ext_resource type="Texture2D" uid="uid://cj2yc8ng0anhy" path="res://fishing-bar/hit-mark.png" id="2_5vigk"]
+[ext_resource type="AudioStream" uid="uid://c3cxiofwkpfhx" path="res://audio/catch.wav" id="4_jbuf7"]
+[ext_resource type="AudioStream" uid="uid://iba7ag33t08m" path="res://audio/fail.wav" id="5_aqt2a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbshi"]
 size = Vector2(11, 7)
@@ -34,6 +36,12 @@ texture = ExtResource("2_5vigk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitmark"]
 shape = SubResource("RectangleShape2D_rvl2m")
+
+[node name="AudioCatch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jbuf7")
+
+[node name="AudioFail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_aqt2a")
 
 [connection signal="area_entered" from="Hitmark" to="." method="_on_hitmark_area_entered"]
 [connection signal="area_exited" from="Hitmark" to="." method="_on_hitmark_area_exited"]
