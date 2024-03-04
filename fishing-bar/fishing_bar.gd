@@ -7,7 +7,7 @@ const MIN_Y_RANGE = 50
 const MAX_Y_RANGE = 100
 
 # Hook speed height and speed limit
-const HOOK_SPEED = 0.5
+var hook_speed = 0.5
 const HOOK_LIMIT = 142
 
 # Y - Position that hook will always start
@@ -18,6 +18,8 @@ var HIT_MARK_RANDOM_Y_POSITION = randi_range(MIN_Y_RANGE, MAX_Y_RANGE)
 var inHitMark = false
 
 func _ready():
+	Globals.connect("score_changed", _on_score_changed)
+	Globals.connect("game_restarted", _on_game_restarted)
 	$Hitmark.position.y = HIT_MARK_RANDOM_Y_POSITION
 	$Hook.position.y = INITIAL_HOOK_Y_POSITION
 	hideHitmark()
@@ -28,7 +30,7 @@ func _process(delta):
 		resetHook()
 		fishing_minigame_ended.emit(false)
 	if Globals.playerState == Globals.STATE.FISHING:
-		$Hook.position.y += HOOK_SPEED
+		$Hook.position.y += hook_speed
 	if inHitMark:
 		if Input.is_action_just_pressed("fish"):
 			resetHook()
@@ -58,3 +60,16 @@ func resetHook():
 	inHitMark = false
 	$Hook.position.y = INITIAL_HOOK_Y_POSITION
 	$Hitmark.position.y = randi_range(MIN_Y_RANGE, MAX_Y_RANGE)
+
+func _on_score_changed():
+	if Globals.score == 5:
+		hook_speed += 0.2
+	if Globals.score == 10:
+		hook_speed += 0.3
+	if Globals.score == 15:
+		hook_speed += 0.2
+	if Globals.score == 20:
+		hook_speed += 0.2
+		
+func _on_game_restarted():
+	hook_speed = 0.5
